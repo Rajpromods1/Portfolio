@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Rajpromods1 | Professional Developer Portfolio</title>
+
+  <!-- Updated Logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png">
+  <link rel="manifest" href="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png">
+  <link rel="mask-icon" href="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png" color="#0a192f">
+
+  <meta name="msapplication-TileColor" content="#0a192f">
+  <meta name="theme-color" content="#0a192f">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-dark: #0a192f;
+      --primary: #112240;
+      --secondary: #233554;
+      --accent: #64ffda;
+      --accent-light: #8892b0;
+      --text-primary: #e6f1ff;
+      --text-secondary: #ccd6f6;
+      --card-bg: rgba(17, 34, 64, 0.7);
+      --section-padding: 5rem;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+      --transition: all 0.4s ease-in-out;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--primary-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    header {
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .profile-img-container {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    /* 🔙 Restored ring/hover animation */
+    .profile-img-container::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 4px solid var(--accent);
+      border-radius: 70%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      transition: var(--transition);
+      box-shadow: 0 0 18px rgba(100, 255, 218, 0.25);
+    }
+    .profile-img-container:hover::after {
+      top: 16px;
+      left: 16px;
+    }
+    .profile-img-container:hover .profile-img {
+      transform: translate(-6px, -6px);
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 70%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: var(--box-shadow);
+      position: relative;
+      z-index: 1;
+      animation: pulseGlow 3s infinite ease-in-out;
+      transition: var(--transition);
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px var(--accent); }
+      50% { box-shadow: 0 0 24px var(--accent); }
+      100% { box-shadow: 0 0 10px var(--accent); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--text-secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--accent-light);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 0.5s;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--card-bg);
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      transition: var(--transition);
+      text-decoration: none;
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
+    .social-link:hover {
+      transform: translateY(-6px) scale(1.05);
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(100, 255, 218, 0.3);
+    }
+
+    section {
+      padding: var(--section-padding) 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin: 1rem auto 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .info-card, .skill-category {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--box-shadow);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+    .info-card.visible, .skill-category.visible { opacity: 1; transform: translateY(0); }
+    .info-card:hover, .skill-category:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(100, 255, 218, 0.4);
+    }
+
+    .info-item { display: flex; margin-bottom: 1.25rem; align-items: center; }
+    .info-label { font-weight: 500; width: 120px; color: var(--accent-light); font-size: 0.9rem; }
+    .info-value { flex: 1; font-weight: 500; }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .skill-category h3 i {
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(100, 255, 218, 0.1);
+      border-radius: 50%;
+    }
+
+    .skill-list { list-style: none; }
+    .skill-list li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.75rem;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    .skill-list li:hover { color: var(--text-primary); transform: translateX(5px); }
+    .skill-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: rgba(10, 25, 47, 0.5);
+      margin-top: 4rem;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .copyright { color: var(--accent-light); font-size: 0.9rem; }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(40px);} to {opacity: 1; transform: translateY(0);} }
+
+    @media (max-width: 768px) {
+      :root { --section-padding: 4rem; }
+      .info-grid, .skills-container { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      :root { --section-padding: 3rem; }
+      .profile-img { width: 150px; height: 150px; }
+      .info-item { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+      .info-label { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="profile-img-container">
+        <img src="https://raw.githubusercontent.com/Rajpromods1/Raj.logo/fa18783f7039f29b539ff11859622d56ea35b8c0/0cc417dd-a8af-45e2-b193-5f37f4b30655.png" alt="King Hacker" class="profile-img">
+      </div>
+      <h1>RAJ OFFICIAL</h1>
+      <p class="tagline">Full-Stack Developer | WEB & Mod Specialist</p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/tksultra.in" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@TEAMTKS0" class="social-link"><i class="fab fa-youtube"></i></a>
+        <a href="https://tksofficial.com" class="social-link"><i class="fas fa-globe"></i></a>
+        <a href="https://t.me/TKSOFFICIALBOT" class="social-link"><i class="fab fa-telegram"></i></a>
+        <a href="https://whatsapp.com/channel/0029Vb7TfRSKGGGOveelQL2G" class="social-link"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">Professional Profile</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-item"><span class="info-label">Name</span><span class="info-value">RAJ SHARMA</span></div>
+          <div class="info-item"><span class="info-label">TG Name</span><span class="info-value">RAJ MODS</span></div>
+          <div class="info-item"><span class="info-label">TG Username</span><span class="info-value">@Editingman04</span></div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-item"><span class="info-label">Education</span><span class="info-value">12th</span></div>
+          <div class="info-item"><span class="info-label">Age</span><span class="info-value">18</span></div>
+          <div class="info-item"><span class="info-label">Location</span><span class="info-value">India {🇮🇳}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-code-branch"></i> Development Specializations</h3>
+          <ul class="skill-list">
+            <li>Website Development</li>
+            <li>Game Development</li>
+            <li>Mod Development</li>
+            <li>API Integration</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-laptop-code"></i> Programming Stack</h3>
+          <ul class="skill-list">
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript (ES6)</li>
+            <li>PHP & Laravel</li>
+            <li>Vue.js Framework</li>
+            <li>Database Design</li>
+            <li>Git Version Control</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="copyright">© <span id="year">2025</span> RAJ MODS. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Scroll reveal effect
+    const items = document.querySelectorAll("section, .info-card, .skill-category");
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.9;
+      items.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) el.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+</body>
+
+</html>
